@@ -1,0 +1,22 @@
+{
+  "name": "playwright-data-driven",
+  "version": "1.0.0",
+  "description": "Playwright automated tests using data driven techniques",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/formarfr/playwright-data-driven.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/formarfr/playwright-data-driven/issues"
+  },
+  "homepage": "https://github.com/formarfr/playwright-data-driven#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.10.0"
+  }
+}
