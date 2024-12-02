@@ -17,6 +17,9 @@
   "homepage": "https://github.com/formarfr/playwright-data-driven#readme",
   "devDependencies": {
     "@playwright/test": "^1.49.0",
-    "@types/node": "^22.10.0"
+    "@types/lodash": "^4.17.13",
+    "@types/node": "^22.10.0",
+    "dotenv": "^16.4.5",
+    "lodash": "4.17.21"
   }
 }
