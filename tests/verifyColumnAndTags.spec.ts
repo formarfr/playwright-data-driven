@@ -26,13 +26,13 @@ scenarios.forEach(({ link, card, expectedColumn, expectedTags }) => {
 
         await sidenav.navTo(link);
 
+        // Verify the card is in the expected board column
         const columnCards = await boardPage.getCardHeadingByColumn(expectedColumn);
         expect(columnCards).toContain(card);
-
+        
+        // Verify each tag on the card is expected
         const tags = await boardPage.getTagsByCardHeading(card);
-        tags.forEach(tg => {
-          expect(expectedTags.indexOf(tg)).toBeGreaterThan(-1);
-        });
+        tags.forEach(tg => { expect(expectedTags.indexOf(tg)).toBeGreaterThan(-1); });
       });
     });
 });

@@ -27,7 +27,6 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
      baseURL: 'https://animated-gingersnap-8cf7f2.netlify.app',
-     navigationTimeout: 45000,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -35,36 +34,51 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    { name: 'setup', testMatch: /.*\.setup\.ts/ },
     {
       name: 'chromium',
       use: { 
         ...devices['Desktop Chrome'],
-        locale: 'en-US',
-        storageState: '.auth/user.json'
+        storageState: '.auth/user.json',
+        screenshot: 'on'
        },
        dependencies: ['setup'],
     },
-    { name: 'setup', testMatch: /.*\.setup\.ts/ },
-  
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
-
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'],
+        storageState: '.auth/user.json',
+        screenshot: 'on'
+       },
+       dependencies: ['setup'],
+    },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'],
+        storageState: '.auth/user.json',
+        screenshot: 'on'
+      },
+      dependencies: ['setup'],
+    },
 
     /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
+    {
+      name: 'Mobile Chrome',
+      use: { ...devices['Pixel 5'],
+        storageState: '.auth/user.json',
+        screenshot: 'on'
+      },
+      dependencies: ['setup'],
+    },
+    {
+      name: 'Mobile Safari',
+      use: { ...devices['iPhone 12'],
+      storageState: '.auth/user.json',
+      screenshot: 'on'
+    },
+    dependencies: ['setup'],
+  },
+
 
     /* Test against branded browsers. */
     // {
